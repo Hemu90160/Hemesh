@@ -1,0 +1,30 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+        git 'https://github.com/org/repo.git'
+      }
+    }
+    stage('Build') {
+      steps {
+        // compile code
+        // save build artifacts to S3 bucket
+      }
+    }
+    stage('Test') {
+      steps {
+        // download artifacts from S3
+        // load test data into Postgres DB
+        // run integration tests
+        // continue only if all tests pass
+      }
+    }
+    stage('Deploy') {
+      steps {
+        // download artifacts from S3
+        // deploy to Kubernetes cluster
+      }
+    }
+  }
+}
